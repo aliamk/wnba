@@ -1,0 +1,106 @@
+.container {
+    display: flex;    
+    justify-content: center;
+    align-items: center;    
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* .nav {
+    position: absolute;
+    top: 1px;
+    height: 5em;
+    width: 100vw;
+    background-color:rgb(145, 145, 73);
+    display: flex;    
+    justify-content: center;
+    align-items: center;    
+} */
+
+
+.info {
+    height: 100%;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    margin: 1em;
+    overflow-wrap: wrap;
+    
+}
+
+#myForm {
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    
+}
+
+input {    
+    /* padding: 0.25em; */
+    margin: 0.15em;
+    height: 6em;
+    width: 6em;
+    border-radius: 50%;
+    background: #12c2e9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    font-size: 1em;
+    word-break: break-word;
+}
+
+.social-media {
+    height: 100%;
+    width:40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(64, 64, 107);
+    margin: 0em;
+    overflow-wrap: wrap;
+}
+
+.instagram_feed {
+    height: 100%;
+    padding: 0.5em;
+}
+
+.team {
+    height: 100%;
+    width: 100%;
+    display: flex;    
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid red;
+    overflow-x: wrap;
+    margin: 0em;
+    padding: 0em;
+}
+
+#wnba {
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+    border: 1px solid yellow;
+    display: flex;    
+    justify-content: center;
+    align-content: center;
+}
+
+#seattleStorm {    
+    background-image: url("./assets/seattle_storm_logo.png");
+    background-color: rgb(230,210,24);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;     
+    border: 1px solid red;
+    width: 48%;
+    height: 16%;
+    /* margin: 0.01em; */
+}

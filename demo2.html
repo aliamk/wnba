@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="nav">Title</div> -->
+        <div class="info">
+            <section class="player-name"><h1>Sue Bird</h1></section>
+            <section id="achievements">
+                <form id="my-form" onSubmit={handleSubmit}>
+                    <input type="button" onclick="myFunction(this.id)" id="sBird10" value="Sue Bird">
+                    <input type="button" onclick="myFunction(this.id)" id="mRapinoe" value="Megan Rapinoe">  
+                </form>
+            </section>
+            <section class="team"><h1></h1></section>            
+            <section class="other"><h1></h1></section>
+        </div>
+        <div class="social-media">            
+            <h1>Instagram Feed</h1>
+            <!-- <form id="myForm">
+                <input type="text" id="username" placeholder="Enter username" required />
+                <input type="submit" value="Search" />
+            </form> -->
+            <div id="instagram-feed-demo" class="instagram_feed"></div>
+        </div>
+    </div>    
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="InstagramFeed2.js"></script>
+
+
+<script>
+    // const instagramFeed = document.getElementsByClassName('instagram_feed')
+    const instagramProfile = document.getElementsByClassName('instagram_profile')
+    const myForm = document.getElementById('my-form')
+    // const userId = myForm.querySelector('input[name=name]')
+
+    (function() {
+        
+    })() 
+
+    function myFunction(clicked_Id) {
+        // document.getElementById(InstagramFeed({username})).value =  clicked_Id;     
+        console.log(typeof(clicked_Id));   
+        new InstagramFeed ({
+            'username': `${'clicked_Id'}`,
+            'container': document.getElementById("#instagram-feed-demo"),
+            'items': 100,
+            'items_per_row':2,
+            'display_biography': true,
+            'display_igtv': true,
+            'display_gallery': true,
+            'callback': null,
+            'styling': true,
+            'margin':1
+        })
+        console.log(clicked_Id);   
+
+    }
+</script>
+        <!-- // $(window).on('load', function(){
+        //     $.instagramFeed({
+        //             'username': 'sbird10',
+        //             'container':"#instagram-feed-demo",
+        //             'items': 100,
+        //             'items_per_row':4,
+        //             'display_profile': true,
+        //             'display_biography': true,
+        //             'display_captions': true,
+        //             // 'display_igtv': true,
+        //             'display_gallery': true,
+        //             'callback': null,
+        //             // 'styling': true
+        //             // 'margin':1
+        //         });           
+        // });
+
+
+    //     $(document).ready(function() {
+    //     $("#myForm").submit(function(e) {
+    //         e.preventDefault();
+    //         var username = $("sbird10").val()
+
+    //         $.instagramFeed({
+    //             'username': username,
+    //             'container':"#instagram-feed-demo",
+    //             'items': 100,
+    //             'items_per_row':2,
+    //             'display_biography': true,
+    //             'display_igtv': true,
+    //             'display_gallery': true,
+    //             'callback': null,
+    //             'styling': true,
+    //             'margin':1
+    //         })
+    //     })
+    // }) -->
+
+
+<!-- </script> -->
+
+</html>
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the input button to display the value of its value attribute.</p>
+
+<input type="button" onclick="myFunction(this.id)" id="sBird10" value="Sue Bird">
+<input type="button" onclick="myFunction(this.id)" id="mRapinoe" value="Megan Rapinoe">
+
+<p id="demo"></p>
+
+<script>
+function myFunction(clicked_Id) {
+  
+  document.getElementById("demo").innerHTML = clicked_Id;
+}
+</script>
+
+</body>
+</html>
+
+
+ -->

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="nav">Title</div> -->
+        <div class="info">           
+            <!-- <div class="team">
+                <h1 id="wnba">WNBA</h1>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+                <div id="seattleStorm"></div>
+            </div>              -->
+            <form id="myForm" ></form>
+        </div>
+
+        <div class="social-media">                        
+            <!-- <form id="myForm">
+                <input type="text" id="username" placeholder="Enter username" required />
+                <input type="submit" value="Search" />
+            </form> -->
+            <div id="instagram-feed-demo" class="instagram_feed"></div>
+        </div>
+
+    </div>    
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="instagramfeed.js"></script>
+
+
+<script>
+    const tweetDiv = document.getElementsByClassName('twitter_feed')
+    const instagramProfile = document.getElementsByClassName('instagram_profile')
+
+    var playersArray = [ 
+        { name: "jaylyn_agnew", value: "Jaylyn&nbsp;Agnew", team: `Atlanta&nbsp;Dream`},
+        { name: "monique.billings", value: `Monique&nbsp;Billings`, team: `Atlanta&nbsp;Dream`},  
+        { name: "atlantadream", value: `Brittany&nbsp;Brewer`, team: `Atlanta&nbsp;Dream`},         
+        { name: "kalanibrown.21", value: `Kalani&nbsp;Brown`, team: `Atlanta&nbsp;Dream`},
+        { name: "chennedycarter", value: "Chennedy&nbsp;Carter", team: `Atlanta&nbsp;Dream`},
+        { name: "daela_kavis3", value: "Kaela&nbsp;Davis", team: `Atlanta&nbsp;Dream`},
+        { name: "e_williams_1", value: "Elizabeth&nbsp;Williams", team: `Atlanta&nbsp;Dream`},
+        { name: "blakeyd11", value: "Blake&nbsp;Dietrich", team: `Atlanta&nbsp;Dream`},
+        { name: "missvol25", value: "Glory&nbsp;Johnson", team: `Atlanta&nbsp;Dream`}, 
+        { name: "najlaney", value: "Laney&nbsp;Betnijah", team: `Atlanta&nbsp;Dream`}, 
+        { name: "stricklen40", value: "Shekinna&nbsp;Stricklen", team: `Atlanta&nbsp;Dream`}, 
+        { name: "courtneywilliams10", value: "Courtney&nbsp;Willliams", team: `Atlanta&nbsp;Dream`}, 
+
+        { name: "_klc215", value: "Kahleah&nbsp;Copper", team: `Chicago&nbsp;Sky`},
+        { name: "sydjcolson", value: "Sydney&nbsp;Coulson", team: `Chicago&nbsp;Sky`},
+        { name: "diamonddoesit1", value: "Diamond&nbsp;DeShields", team: `Chicago&nbsp;Sky`},
+        { name: "bri_jones18", value: "Brionna&nbsp;Jones", team: `Chicago&nbsp;Sky`},
+        { name: "smavunga_23", value: "Stephanie&nbsp;Mavunga", team: `Chicago&nbsp;Sky`},
+        { name: "thecheyenneparker", value: "Cheyenne&nbsp;Parker", team: `Chicago&nbsp;Sky`},
+        { name: "allie14quigs", value: "Alexandria&nbsp;Quigley", team: `Chicago&nbsp;Sky`},
+        { name: "azura_stevens", value: "Azura&nbsp;Stevens", team: `Chicago&nbsp;Sky`},
+        { name: "jaszthomas", value: "Jasmine&nbsp;Thomas", team: `Chicago&nbsp;Sky`},
+        { name: "chicagosky", value: "Courtney&nbsp;Vandersloot", team: `Chicago&nbsp;Sky`},
+        { name: "chicagosky", value: "Gabby&nbsp;Williams", team: `Chicago&nbsp;Sky`},
+        { name: "chicagosky", value: "Alexis&nbsp;Prince", team: `Chicago&nbsp;Sky`},
+
+        { name: "dewannabonner", value: `Dewanna&nbsp;Bonner`, team: `Connecticut&nbsp;Sun`}, 
+        { name: "pr3pe", value: `Essence&nbsp;Carson`, team: `Connecticut&nbsp;Sun`}, 
+        { name: "kailacharles5", value: `Kaila&nbsp;Charles`, team: `Connecticut&nbsp;Sun`}, 
+        { name: "pr3pe", value: "Gabby&nbsp;Williams", team: `Connecticut&nbsp;Sun`},
+        { name: "t5poon", value: "Natisha&nbsp;Hiedeman", team: `Connecticut&nbsp;Sun`},
+        { name: "briaholmes32", value: "Bria&nbsp;Holmes", team: `Connecticut&nbsp;Sun`},
+        { name: "connecticutsun", value: "Kaleena&nbsp;Mosqueda-Lewis", team: `Connecticut&nbsp;Sun`},
+        { name: "bjan_20", value: "Briann&nbsp;January", team: `Connecticut&nbsp;Sun`},
+        { name: "beatrice_life", value: "Beatrice&nbsp;Mompremier", team: `Connecticut&nbsp;Sun`},
+        { name: "tplai55", value: "Theresa&nbsp;Plaisance", team: `Connecticut&nbsp;Sun`},
+        { name: "athomas_25", value: "Alyssa&nbsp;Thomas", team: `Connecticut&nbsp;Sun`},
+
+        { name: "bella_alarie", value: "Bella&nbsp;Alarie", team: `Dallas&nbsp;Wings`},
+        { name: "graytness_15", value: "Allisha&nbsp;Gray", team: `Dallas&nbsp;Wings`},
+        { name: "ballher_52", value: "Tyasha&nbsp;Harris", team: `Dallas&nbsp;Wings`},
+        { name: "_bonnbonn", value: "Moriah&nbsp;Jefferson", team: `Dallas&nbsp;Wings`},
+        { name: "marinamabrey", value: "Marina&nbsp;Mabrey", team: `Dallas&nbsp;Wings`},
+        { name: "ndourastou", value: "Astou&nbsp;Ndour", team: `Dallas&nbsp;Wings`},
+        { name: "arike_ogunbowale", value: "Arike&nbsp;Ogunbowale", team: `Dallas&nbsp;Wings`},
+        { name: "satou_sabally", value: "Satou&nbsp;Sabally", team: `Dallas&nbsp;Wings`},
+        { name: "noklout.kay", value: "Kayla&nbsp;Thornton", team: `Dallas&nbsp;Wings`},
+
+        { name: "natachon11", value: "Natalie&nbsp;Achonwa", team: `Indiana&nbsp;Fever`},
+        { name: "kennedyvalentine", value: "Kennnedy&nbsp;Valentine", team: `Indiana&nbsp;Fever`},
+        { name: "lauren_cox15", value: "Lauren&nbsp;Cox", team: `Indiana&nbsp;Fever`},
+        { name: "k.doyle_11", value: "Kathleen&nbsp;Doyle", team: `Indiana&nbsp;Fever`},
+        { name: "jantellav", value: "Jantel&nbsp;Lavender", team: `Indiana&nbsp;Fever`},
+        { name: "teairamccowan", value: "Teaira&nbsp;McCowan", team: `Indiana&nbsp;Fever`},
+        { name: "ksmalls3", value: "Kamiah&nbsp;Smalls", team: `Indiana&nbsp;Fever`},
+        { name: "victoriavivians", value: "Victoria&nbsp;Vivians", team: `Indiana&nbsp;Fever`},
+        { name: "eweezy_3", value: "Erica&nbsp;Wheeler", team: `Indiana&nbsp;Fever`},
+
+        { name: "lallen15", value: "Lindsay&nbsp;Allen", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "c_burdick11", value: "Cierra&nbsp;Burdick", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "ecambage", value: "Elizabeth&nbsp;Cambage", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "dearicamarie", value: "Dearica&nbsp;Marie&nbsp;Hamby", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "kaymac_21", value: "Kayla&nbsp;McBride", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "kelseyplum10", value: "Kelsea&nbsp;Plum", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "lvaces", value: "Danielle&nbsp;Robinson", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "swo30", value: "Carolyn&nbsp;Swords", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "aja22wilson", value: "A'ja&nbsp;Wilson", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "j.young5", value: "Jackie&nbsp;Young", team: `Las&nbsp;Vegas&nbsp;Aces`},
+        { name: "j.young5", value: "Jackie&nbsp;Young", team: `Las&nbsp;Vegas&nbsp;Aces`},
+
+        { name: "kristine__31", value: "Kristine&nbsp;Anigwe", team: `Los&nbsp;Angeles&nbsp;Sparks`},
+        { name: "tea.cooper2", value: "Te'a&nbsp;Cooper", team: `Los&nbsp;Angeles&nbsp;Sparks`},
+        { name: "nograyareas21", value: "Reshanda&nbsp;Gray", team: `Los&nbsp;Angeles&nbsp;Sparks`},
+        { name: "nnemkadi", value: "Nneka&nbsp;Ogwumike", team: `Los&nbsp;Angeles&nbsp;Sparks`},
+        { name: "candaceparker", value: "Candace&nbsp;Parker", team: `Los&nbsp;Angeles&nbsp;Sparks`},
+        { name: "trp14", value: "Tierra&nbsp;Ruffin-Pratt", team: `Los&nbsp;Angeles&nbsp;Sparks`},
+        { name: "brittbundlez", value: "Brittney&nbsp;Sykes", team: `Los&nbsp;Angeles&nbsp;Sparks`},
+        { name: "swiesebaby24", value: "Sydney&nbsp;Wiese", team: `Los&nbsp;Angeles&nbsp;Sparks`},
+
+        { name: "kjalexan40", value: "Kayla&nbsp;Alexander", team: `Minnesota&nbsp;Lynx`},
+        { name: "rachelbanham1", value: "Rachel&nbsp;Banham", team: `Minnesota&nbsp;Lynx`},
+        { name: "bridgecarleton", value: "Bridget&nbsp;Carleton", team: `Minnesota&nbsp;Lynx`},
+        { name: "crystaldangerfield5", value: "Crystal&nbsp;Dangerfield", team: `Minnesota&nbsp;Lynx`},
+        { name: "sylvia_fowles", value: "Sylvia&nbsp;Fowles", team: `Minnesota&nbsp;Lynx`},
+        { name: "kiki_2121", value: "Mikiah&nbsp;Herbert&nbsp;Harrigan", team: `Minnesota&nbsp;Lynx`},
+        { name: "minnesotalynx", value: "Shenise&nbsp;Johnson", team: `Minnesota&nbsp;Lynx`},
+        { name: "birdstheword_24", value: "Erica&nbsp;McCall", team: `Minnesota&nbsp;Lynx`},
+        { name: "one_luckylefty", value: "Odyssey&nbsp;Sims", team: `Minnesota&nbsp;Lynx`},
+        
+        { name: "layshiac", value: "Layshia&nbsp;Clarendon", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "asiadurr", value: "Asia&nbsp;Durr", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "joyneeer", value: "Joyner&nbsp;Holner", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "sabrina_i", value: "Sabrina&nbsp;Ionescu", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "jazmine.jones4", value: "Jazmine&nbsp;Jones", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "pariskea22", value: "Paris&nbsp;Kea", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "kianurse", value: "Kia&nbsp;Nurse", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "nyliberty", value: "Leaonna&nbsp;Odom", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "kylee_shook", value: "Kylee&nbsp;Shook", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "megwalker3", value: "Meg&nbsp;Walker", team: `New&nbsp;York&nbsp;Liberty`},
+        { name: "amandazahuib", value: "Amanda&nbsp;Zahuib", team: `New&nbsp;York&nbsp;Liberty`},
+
+        { name: "jaybreland", value: "Jessica&nbsp;Breland", team: `Phoenix&nbsp;Mercury`},
+        { name: "phoenixmercury", value: "Nia&nbsp;Coffey", team: `Phoenix&nbsp;Mercury`},
+        { name: "skydigg4", value: "Skylar&nbsp;Diggins-Smith", team: `Phoenix&nbsp;Mercury`},
+        { name: "brittneyyevettegriner", value: "Brittney&nbsp;Yevette&nbsp;Griner", team: `Phoenix&nbsp;Mercury`},
+        { name: "breezyyy14", value: "Bria&nbsp;Hartley", team: `Phoenix&nbsp;Mercury`},
+        { name: "baldiana_24", value: "Alisia&nbsp;Jenkins", team: `Phoenix&nbsp;Mercury`},
+        { name: "sheyp11", value: "Shey&nbsp;Peddy", team: `Phoenix&nbsp;Mercury`},
+        { name: "alannas96", value: "Alanna&nbsp;Simone&nbsp;Smith", team: `Phoenix&nbsp;Mercury`},
+        { name: "dianataurasi", value: "Diana&nbsp;Taurasi", team: `Phoenix&nbsp;Mercury`},
+        { name: "vaughn_finstaaaaa", value: "Kia&nbsp;Vaughn", team: `Phoenix&nbsp;Mercury`},
+        { name: "_shatori", value: "Shatori&nbsp;Walker-Kimbrough", team: `Phoenix&nbsp;Mercury`},
+
+        { name: "sbird10", value: `Sue&nbsp;Bird`, team: `Seattle&nbsp;Storm` }, 
+        { name: "alyshaclark", value: "Alysha&nbsp;Clark", team: `Seattle&nbsp;Storm`},
+        { name: "jaeecan", value: "Jordin&nbsp;Canada", team: `Seattle&nbsp;Storm`},
+        { name: "natashahoward_06", value: "Natasha&nbsp;Howard", team: `Seattle&nbsp;Storm`},
+        { name: "jewellloyd", value: "Jewell&nbsp;Loyd", team: `Seattle&nbsp;Storm`},
+        { name: "crystalanghorne", value: "Crystal&nbsp;Langhorne", team: `Seattle&nbsp;Storm`},
+        { name: "ezimagbegor", value: "Ezi&nbsp;Magbegor", team: `Seattle&nbsp;Storm`},
+        { name: "piphdagreat10", value: "Epiphanny&nbsp;Prince", team: `Seattle&nbsp;Storm`},
+        { name: "mersladezz", value: "Mercedes&nbsp;Russell", team: `Seattle&nbsp;Storm`},
+        { name: "breannastewart30", value: "Breanna&nbsp;Stewart", team: `Seattle&nbsp;Storm`},
+        { name: "m_tuck3", value: "Morgan&nbsp;Tuck", team: `Seattle&nbsp;Storm`},
+        { name: "bamsam32", value: "Sami&nbsp;Whitcomb", team: `Seattle&nbsp;Storm`},
+
+        { name: "iamarielatkins", value: "Ariel&nbsp;Atkins", team: `Washington&nbsp;Mystics`},
+        { name: "tina31charles", value: "Tina&nbsp;Charles", team: `Washington&nbsp;Mystics`},
+        { name: "alainacoates", value: "Alaina&nbsp;Coates", team: `Washington&nbsp;Mystics`},
+        { name: "de11edonne", value: "Elena&nbsp;Delle&nbsp;Donne", team: `Washington&nbsp;Mystics`},
+        { name: "jacki23", value: "Jacki&nbsp;Gemelos", team: `Washington&nbsp;Mystics`},
+        { name: "t_hawk21", value: "Tianna&nbsp;Marie", team: `Washington&nbsp;Mystics`},
+        { name: "bpf_mooks_22", value: "Myisha&nbsp;Hines-Allen", team: `Washington&nbsp;Mystics`},
+        { name: "washmystics", value: "Stella&nbsp;Johnson", team: `Washington&nbsp;Mystics`},
+        { name: "kiaraleslie5", value: "Kiara&nbsp;Leslie", team: `Washington&nbsp;Mystics`},
+        { name: "emma_meesseman", value: "Emma&nbsp;Meesseman", team: `Washington&nbsp;Mystics`},
+        { name: "leilani_mitchell5", value: "Leilani&nbsp;Mitchell", team: `Washington&nbsp;Mystics`},
+        { name: "aerial_powers23", value: "Aerial&nbsp;Powers", team: `Washington&nbsp;Mystics`},
+        { name: "sugsutton", value: "Sug&nbsp;Sutton", team: `Washington&nbsp;Mystics`},    
+        
+    ]
+
+    // function findPlayers() {
+    //     for (i=0; i < playersArray.length; i++) {
+    //         $("#seattleStorm").click(function(e) {
+    //         var selectedTeam = $(this).attr("id")
+    //         console.log('players: ', selectedTeam)
+    //     }
+    // }
+
+
+    for (i=0; i < playersArray.length; i++) {
+        console.log('players: ', playersArray[i].src)
+        if( playersArray[i].name === "null") {
+            console.log(true)
+            $("#myForm").append(`<input class="player" type="submit" name='wnbanation' value=${playersArray[i].value} />`);              
+        } else {
+            $("#myForm").append(`<input class="player" type="submit" name=${playersArray[i].name} value=${playersArray[i].value} />`);
+        }        
+    }   
+
+    $(document).ready(function() {        
+        $(".player").click(function(e) {            
+            e.preventDefault();            
+            var username = $(this).attr("name")
+            console.log('username: ', username)
+            $.instagramFeed({
+                'username': username,
+                'container':"#instagram-feed-demo",
+                'items': 12,
+                'items_per_row':4,
+                'display_profile': true,
+                'display_biography': false,                
+                'display_igtv': false,
+                'display_gallery': true,
+                'callback': null,
+                'styling': true,
+                'lazy_load': true,
+                'margin':1
+            })
+            console.log(typeof(username))
+        })
+    })
+
+
+        // $(window).on('load', function(){
+        //     $.instagramFeed({
+        //             'username': 'sbird10',
+        //             'container':"#instagram-feed-demo",
+        //             'items': 100,
+        //             'items_per_row':4,
+        //             'display_profile': true,
+        //             'display_biography': true,
+        //             'display_captions': true,
+        //             // 'display_igtv': true,
+        //             'display_gallery': true,
+        //             'callback': null,
+        //             // 'styling': true
+        //             // 'margin':1
+        //         });           
+        // });
+
+
+    //     $(document).ready(function() {
+    //     $("#myForm").submit(function(e) {
+    //         e.preventDefault();
+    //         var username = $("sbird10").val()
+
+    //         $.instagramFeed({
+    //             'username': username,
+    //             'container':"#instagram-feed-demo",
+    //             'items': 100,
+    //             'items_per_row':2,
+    //             'display_biography': true,
+    //             'display_igtv': true,
+    //             'display_gallery': true,
+    //             'callback': null,
+    //             'styling': true,
+    //             'margin':1
+    //         })
+    //     })
+    // })
+
+
+</script>
+
+</html>
